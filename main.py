@@ -16,11 +16,25 @@ class Player:
 
     def __repr__(self):
         return f"{self.Namn} {self.Age}"
+#                  0                     1               2                     3                  4
+arrayen = [ Player("Lisa",28), Player("Kalle",13),Player("Stefan",7) , Player("Anna",52), Player("Oliver",14) ]
 
-arrayen = [ Player("Stefan",50), Player("Kalle",13), Player("Lisa",28), Player("Anna",52), Player("Oliver",14) ]
+# Göra n antal genomgångar av listan:
+# Leta efter den minsta element i listan:
+# Flytta den till först platsen
+# Sedan näst-minst, näst-näst-minst osv
+def selSort(arrayen):
+    for index in range(0,len(arrayen)-1):
+        # hitta vilket index som innehåller den minta
+        smallestIndex = index
+        for innerIndex in range(index,len(arrayen)):
+            if arrayen[innerIndex].Age < arrayen[smallestIndex].Age:
+                smallestIndex = innerIndex
+        arrayen[smallestIndex], arrayen[index] = arrayen[index], arrayen[smallestIndex]
+        
 
 def main():
-    #sort
+    selSort(arrayen)
     print(arrayen)
 
 if __name__ == "__main__":
