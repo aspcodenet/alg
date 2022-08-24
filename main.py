@@ -19,8 +19,31 @@ class Player:
 
 arrayen = [ Player("Stefan",50), Player("Kalle",13), Player("Lisa",28), Player("Anna",52), Player("Oliver",14) ]
 
+# Enkel algoritm:
+# Gå igenom alla element X i listan:
+# Om X är mindre än elementet till vänster om den:
+# Ta ut X ur listan
+# Leta till vänster till vi hittar något mindre än X
+# Göra en “insert” på X på det nya platsen
+# [ 5, 14, 50,  33  ]
+#   0   1   2   3   
+# index = 3
+def insertionSort(arrayen):
+    for index in range(1,len(arrayen)):
+        vardeInnan = arrayen[index-1] # Stefan 50
+        x = arrayen[index] # Kalle 13
+        if x.Age < vardeInnan.Age:
+            del arrayen[index]
+            indexOfLower = 0
+            for  leftLoopIndex in range(index-1,0,-1):
+                if arrayen[leftLoopIndex].Age < x.Age:
+                    indexOfLower = leftLoopIndex + 1
+                    break
+            arrayen.insert(indexOfLower,x)
+
+
 def main():
-    #sort
+    insertionSort(arrayen)
     print(arrayen)
 
 if __name__ == "__main__":
