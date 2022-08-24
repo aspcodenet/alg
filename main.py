@@ -17,10 +17,30 @@ class Player:
     def __repr__(self):
         return f"{self.Namn} {self.Age}"
 
-arrayen = [ Player("Stefan",50), Player("Kalle",13), Player("Lisa",28), Player("Anna",52), Player("Oliver",14) ]
+arrayen = [ Player("Stefan",50),Player("Kalle",13), Player("Lisa",28), Player("Anna",52), Player("Oliver",14) ]
+
+# Göra n antal genomgångar av listan: n = 10
+# i = for i in range(0,n)
+# För varje par element i och i+1 i listan:
+# 12 4 16 7      indewx = 0
+# 4  12 16 7 indewx = 1
+# Om listan[index] < listan[index+1]:
+# Byta plats på listan[i] och listan[i+1]
+# Varje element “bubblar upp” till rätt plats
+def bubbleSort(arrayen):
+    for index in range(0,len(arrayen)):
+        print(arrayen)    
+        for pairStart in range(0,len(arrayen)-1-index):
+            firstObject = arrayen[pairStart]
+            secondObject = arrayen[pairStart+1]
+            if firstObject.Age > secondObject.Age:
+                temp = arrayen[pairStart]
+                arrayen[pairStart] = arrayen[pairStart+1]
+                arrayen[pairStart+1] = temp
+                #arrayen[pairStart], arrayen[pairStart+1] = arrayen[pairStart+1],arrayen[pairStart]
 
 def main():
-    #sort
+    bubbleSort(arrayen)
     print(arrayen)
 
 if __name__ == "__main__":
