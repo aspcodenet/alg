@@ -35,7 +35,7 @@ def insertionSort(arrayen):
         if x.Age < vardeInnan.Age:
             del arrayen[index]
             indexOfLower = 0
-            for  leftLoopIndex in range(index-1,0,-1):
+            for  leftLoopIndex in range(index-1,-1,-1):
                 if arrayen[leftLoopIndex].Age < x.Age:
                     indexOfLower = leftLoopIndex + 1
                     break
